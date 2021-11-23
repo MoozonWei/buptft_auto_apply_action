@@ -86,7 +86,15 @@ axios.post(
                 { "parse_mode": "Markdown" }
             );
         }
-    })();
+    })().catch(err => {
+        console.error(err);
+        if (err instanceof Error) {
+            console.log(err.stack);
+            core.setFailed(err.message);
+        } else {
+            core.setFailed(err);
+        }
+    });
 }).catch(err => {
     console.error(err);
     (async () => {
