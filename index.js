@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const axios = require('axios');
 const qs = require('qs');
 const day = require('dayjs');
-import TelegramBot from "node-telegram-bot-api";
+const TelegramBot = require('node-telegram-bot-api');
 
 const NOW_DATE = new Date();
 const FORM_INFO = {
