@@ -82,7 +82,9 @@ axios.post(
             const bot = new TelegramBot(botToken);
             await bot.sendMessage(
                 chatId,
-                `今日申请：${res.data}`,
+                `今日申请出校成功。
+                理由：${FORM_INFO.why}
+                去向：${FORM_INFO.where}`,
                 { "parse_mode": "Markdown" }
             );
         }
@@ -102,7 +104,7 @@ axios.post(
             const bot = new TelegramBot(botToken);
             await bot.sendMessage(
                 chatId,
-                `错误：${err}`,
+                `错误：${err.toString()}`,
                 { "parse_mode": "Markdown" }
             );
         }

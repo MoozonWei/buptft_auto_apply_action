@@ -1,8 +1,8 @@
-name: Automatically submit the 2019-nCoV report sheet of BUPT
+name: Automatically apply for leaving-school-service
 
 on:
   schedule:
-    - cron: "0 13 * * *"
+    - cron: "0 15 * * *"
   push:
 
 jobs:
