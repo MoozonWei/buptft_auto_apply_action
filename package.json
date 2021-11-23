@@ -1,0 +1,19 @@
+{
+  "name": "buptft_auto_apply_action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "axios": "^0.24.0",
+    "dayjs": "^1.10.7",
+    "node-telegram-bot-api": "^0.54.0",
+    "qs": "^6.10.1"
+  }
+}

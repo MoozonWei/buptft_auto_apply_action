@@ -1,0 +1,43 @@
+name: Automatically submit the 2019-nCoV report sheet of BUPT
+
+on:
+  schedule:
+    - cron: "0/3 12 * * *"
+  push:
+
+jobs:
+  checker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Cache NPM dependencies
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Install Dependencies
+        run: |
+          npm install
+      - name: Run Script
+        run: |
+          node index.js
+        env:
+          FORM_NAME: ${{ secrets.FORM_NAME }}
+          FORM_STDID: ${{ secrets.FORM_STDID }}
+          FORM_DEP: ${{ secrets.FORM_DEP }}
+          FORM_PHONE: ${{ secrets.FORM_PHONE }}
+          FORM_WHERE: ${{ secrets.FORM_WHERE }}
+          FORM_WHY: ${{ secrets.FORM_WHY }}
+          FORM_CAMPUS: ${{ secrets.FORM_CAMPUS }}
+          FORM_TEACHER_NAME: ${{ secrets.FORM_TEACHER_NAME }}
+          FORM_TEACHER_UID: ${{ secrets.FORM_TEACHER_UID }}
+          FORM_TEACHER_NUMBER: ${{ secrets.FORM_TEACHER_NUMBER }}
+          COOKIE: ${{ secrets.COOKIE }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
